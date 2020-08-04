@@ -1,0 +1,16 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Aqara hub monitor via ping",
+  "main": "aqara_hub_monitor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ping": "^0.2.3",
+    "pushover-notifications": "^1.2.2"
+  }
+}
