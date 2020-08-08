@@ -15,7 +15,7 @@ let leds = [
 ];
 let nextLed = 0
 
-module.exports.lightNextLed = (senseLeds) => {
+exports.lightNextLed = (senseLeds) => {
 
     leds[nextLed] = G;
     senseLeds.setPixels(leds);
@@ -26,4 +26,10 @@ module.exports.lightNextLed = (senseLeds) => {
         leds.forEach((value, index, array) => array[index] = _ );
     }
 
+}
+
+exports.initialize = (senseLeds) => {
+    if (senseLeds) {
+        senseLeds.setPixels(leds);
+    }
 }

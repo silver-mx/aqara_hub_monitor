@@ -31,6 +31,7 @@ const interval = 1 * 60 * 1000;
 /* Only for the emulator */
 module.exports = (_senseJoystick, _senseLeds) => {
     senseLeds = _senseLeds;
+    sensehat.initialize(senseLeds);
 }
 
 function notifyWhenDown() {
@@ -54,7 +55,5 @@ function notifyWhenDown() {
     });
 }
 
- setInterval(notifyWhenDown, interval);
-
-
-
+sensehat.initialize(senseLeds);
+setInterval(notifyWhenDown, interval);
