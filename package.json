@@ -4,13 +4,19 @@
   "description": "Aqara hub monitor via ping",
   "main": "aqara_hub_monitor.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webemu": "webemu start --file aqara_hub_monitor.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
     "ping": "^0.2.3",
-    "pushover-notifications": "^1.2.2"
+    "pushover-notifications": "^1.2.2",
+    "sense-hat-led": "^1.2.0",
+    "sense-joystick": "0.0.3"
+  },
+  "devDependencies": {
+    "sense-hat-web-emu": "^2.0.3"
   }
 }

@@ -1,8 +1,15 @@
 require('dotenv').config({
     path: __dirname + '/.env'
 });
-var ping = require('ping');
-var Push = require('pushover-notifications');
+
+const senseJoystick = require('sense-joystick')
+const senseLeds = require('sense-hat-led')
+
+const sensehat = require('./sensehat_monitor');
+const ping = require('ping');
+const Push = require('pushover-notifications');
+
+let senseLeds;
 
 
 var p = new Push({
@@ -19,9 +26,12 @@ const msg = {
 }
 
 const aqaraHub = '192.168.1.105';
-const interval5Mins = 5 * 60 * 1000;
+const interval = 1 * 60 * 1000;
 
-setInterval(notifyWhenDown, interval5Mins);
+/* Only for the emulator */
+module.exports = (_senseJoystick, _senseLeds) => {
+    senseLeds = _senseLeds;
+}
 
 function notifyWhenDown() {
     ping.sys.probe(aqaraHub, (isAlive) => {
@@ -35,11 +45,16 @@ function notifyWhenDown() {
                     throw err
                 }
 
-                console.log(result)
+                sensehat.lightNextLed(senseLeds);
+                //console.log(result)
             })
+        } else {
+            sensehat.lightNextLed(senseLeds);
         }
     });
 }
+
+ setInterval(notifyWhenDown, interval);
 
 
 
