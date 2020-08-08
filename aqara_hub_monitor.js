@@ -9,7 +9,7 @@ const sensehat = require('./sensehat_monitor');
 const ping = require('ping');
 const Push = require('pushover-notifications');
 
-let senseLeds;
+//let senseLeds;
 
 
 var p = new Push({
