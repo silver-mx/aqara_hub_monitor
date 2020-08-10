@@ -39,18 +39,16 @@ function notifyWhenDown() {
 
         if (!isAlive) {
 
+            sensehat.lightNextLedError(senseLeds);
             console.log('Aqara hub is down, sending notification ...');
 
             p.send(msg, (err, result) => {
                 if (err) {
                     throw err
                 }
-
-                sensehat.lightNextLed(senseLeds);
-                //console.log(result)
-            })
+            });
         } else {
-            sensehat.lightNextLed(senseLeds);
+            sensehat.lightNextLedOK(senseLeds);
         }
     });
 }

@@ -13,11 +13,20 @@ let leds = [
     _, _, _, _, _, _, _, _,
     _, _, _, _, _, _, _, _
 ];
+
 let nextLed = 0
 
-exports.lightNextLed = (senseLeds) => {
+exports.lightNextLedOK = (senseLeds) => {
+    this.lightNextLed(senseLeds, G);
+}
 
-    leds[nextLed] = G;
+exports.lightNextLedError = (senseLeds) => {
+    this.lightNextLed(senseLeds, R);
+}
+
+exports.lightNextLed = (senseLeds, color) => {
+
+    leds[nextLed] = color;
     senseLeds.setPixels(leds);
     nextLed++;
 
