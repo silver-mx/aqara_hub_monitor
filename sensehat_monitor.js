@@ -38,6 +38,9 @@ exports.lightNextLed = (senseLeds, color) => {
 }
 
 exports.initialize = (senseLeds) => {
+
+    console.log('Initializing sensehat ....');
+
     if (senseLeds) {
         senseLeds.setPixels(leds);
     }

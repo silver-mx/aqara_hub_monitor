@@ -55,3 +55,5 @@ function notifyWhenDown() {
 
 sensehat.initialize(senseLeds);
 setInterval(notifyWhenDown, interval);
+
+console.log('aqara_hub_monitor started ....');
