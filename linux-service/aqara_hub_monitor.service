@@ -1,0 +1,22 @@
+PUSHOVER_USER=urn8akfzqgghxcnto5d5fdh5az3gwr
+PUSHOVER_TOKEN=apgxe29nskqshbde6yg4fr34t1xuo6
+
+
+
+[Unit]
+Description=aqara_hub_monitor.js
+Documentation=https://example.com
+After=network.target
+
+[Service]
+Environment=NODE_PORT=3001
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/wa/aqara_hub_monitor
+ExecStart=/opt/node/bin/node aqara_hub_monitor.js
+Restart=on-failure
+StandardOutput=append:/tmp/aqara-hub-monitor.log
+StandardError=append:/tmp/aqara-hub-monitor.log
+
+[Install]
+WantedBy=multi-user.target
